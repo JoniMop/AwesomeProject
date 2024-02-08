@@ -1,25 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.textColor}>Hi! Developing mobile apps!</Text>
-	  <Button title='Click here' />
-      <StatusBar style="auto" />
+    <View>
+	<View>
+	  <TextInput placeholder='Enter task details' />
+	  <Button title='Add Task' />
+	</View>
+	<View>
+	 <Text> Tasks </Text>
+	</View>  
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-	textColor: {
-	    color: 'green',
-	    fontSize: 20
-	}
-});
+//const styles = StyleSheet.create({
+//	}
+//});
