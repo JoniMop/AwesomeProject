@@ -8,7 +8,7 @@ export default function App() {
 	  <TextInput style={styles.inputBox} placeholder='Enter task details' />
 	  <Button title='Add Task' />
 	</View>
-	<View>
+	<View style={styles.taskList}>
 	 <Text> Tasks </Text>
 	</View>  
     </View>
@@ -17,12 +17,20 @@ export default function App() {
 
 const styles = StyleSheet.create({
 	mainContainer: {
+		flex: 1,
 		paddingTop: 45,
+		paddingHorizontal: 15,
+		backgroundColor: "green"
 	},
 	inputContainer: {
+		flex: 1,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center'
+		alignItems: 'center',
+		marginBottom: 20,
+		borderBottomColor: '#cccccc',
+		borderBottomWidth: 1,
+		backgroundColor: "red"
 	},
 	inputBox: {
 		width: '75%',
@@ -30,6 +38,11 @@ const styles = StyleSheet.create({
 		borderColor: '#cccccc',
 		padding: 5,
 		marginRight: 5,
-		borderRadius: 15
+		borderRadius: 15,
+		color: '#fff'
+	},
+	taskList: {
+		flex: 6,
+		backgroundColor: 'skyblue'
 	}
 });
