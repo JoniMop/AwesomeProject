@@ -3,7 +3,7 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   return (
-    <View>
+    <View style={styles.mainContainer}>
 	<View>
 	  <TextInput placeholder='Enter task details' />
 	  <Button title='Add Task' />
@@ -15,6 +15,8 @@ export default function App() {
   );
 }
 
-//const styles = StyleSheet.create({
-//	}
-//});
+const styles = StyleSheet.create({
+	mainContainer: {
+		padding: 100
+	}
+});
