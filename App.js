@@ -1,15 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
+import {useState} from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
+  const[task, setTask] = useState("");
+  const[taskList, setTaskList] = useState([]);
+  
+  function taskInputHandler(inputTask) {
+	  setTask(inputTask);
+  }
+  function addNewTask() {
+	  setTaskList((currentTaskList) =>
+		  [
+		  ...currentTaskList,
+                  task
+		  ]
+	  );
+  }
+
   return (
     <View style={styles.mainContainer}>
 	<View style={styles.inputContainer}>
-	  <TextInput style={styles.inputBox} placeholder='Enter task details' />
-	  <Button title='Add Task' />
+	  <TextInput
+	  onChangeText={taskInputHandler}
+	  style={styles.inputBox} 
+	  placeholder='Enter task details' />
+	  <Button title='Add Task' onPress={addNewTask}/>
 	</View>
-	<View style={styles.taskList}>
+	<View style={styles.taskListSection}>
 	 <Text> Tasks </Text>
+	  {
+		taskList.map((taskItem, index) => {
+		  return (
+			<Text key={index}>{taskItem}</Text>
+		  )
+	  })
+	  }
+
 	</View>  
     </View>
   );
@@ -41,7 +68,7 @@ const styles = StyleSheet.create({
 		borderRadius: 15,
 		color: '#fff'
 	},
-	taskList: {
+	taskListSection: {
 		flex: 6,
 		backgroundColor: 'skyblue'
 	}
