@@ -28,11 +28,13 @@ export default function App() {
 	  <Button title='Add Task' onPress={addNewTask}/>
 	</View>
 	<View style={styles.taskListSection}>
-	 <Text> Tasks </Text>
+	 <Text style={styles.taskOvervewTitle}> Tasks </Text>
 	  {
 		taskList.map((taskItem, index) => {
 		  return (
-			<Text key={index}>{taskItem}</Text>
+		      <View style={styles.tastItemStyle}>
+			<Text style={styles.taskItemTextStyle} key={index}>{index + 1}: {taskItem}</Text>
+		     </View>
 		  )
 	  })
 	  }
@@ -71,5 +73,20 @@ const styles = StyleSheet.create({
 	taskListSection: {
 		flex: 6,
 		backgroundColor: 'skyblue'
+	},
+	taskOvervewTitle: {
+                fontSize: 22,
+		fontWeight: 'bold' 
+	},
+	tastItemStyle : {
+		margin: 6,
+		padding: 10,
+		borderRadius: 10,
+		backgroundColor: '#5f1aca',
+		color: "#ffffff"
+	},
+	taskItemTextStyle: {
+		color: "#ffffff"
 	}
+
 });
