@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState} from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const[task, setTask] = useState("");
@@ -29,16 +29,17 @@ export default function App() {
 	</View>
 	<View style={styles.taskListSection}>
 	 <Text style={styles.taskOvervewTitle}> Tasks </Text>
+          <ScrollView>
 	  {
 		taskList.map((taskItem, index) => {
 		  return (
-		      <View style={styles.tastItemStyle}>
-			<Text style={styles.taskItemTextStyle} key={index}>{index + 1}: {taskItem}</Text>
-		     </View>
+		      <View style={styles.tastItemStyle} key={index} >
+			<Text style={styles.taskItemTextStyle}>{index + 1}: {taskItem}</Text>
+		      </View>
 		  )
 	  })
 	  }
-
+	</ScrollView>
 	</View>  
     </View>
   );
