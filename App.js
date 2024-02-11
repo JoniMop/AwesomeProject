@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import {useState} from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
   const[task, setTask] = useState("");
@@ -29,7 +29,19 @@ export default function App() {
 	</View>
 	<View style={styles.taskListSection}>
 	 <Text style={styles.taskOvervewTitle}> Tasks </Text>
-          <ScrollView>
+	  {/*<ScrollView> use flatList for better performance, lazy load and fetch*/}
+	  <FlatList 
+	    data={taskList}
+	    renderItem={(itemData, index)=>{
+	   	return (
+                   
+		      <View style={styles.tastItemStyle} >
+			<Text style={styles.taskItemTextStyle}>{itemData.item}</Text>
+		      </View>
+		)
+	    }}
+	   />
+		    {/*	    
 	  {
 		taskList.map((taskItem, index) => {
 		  return (
@@ -39,7 +51,8 @@ export default function App() {
 		  )
 	  })
 	  }
-	</ScrollView>
+	  </ScrollView>
+		    */}
 	</View>  
     </View>
   );
