@@ -13,7 +13,7 @@ export default function App() {
 	  setTaskList((currentTaskList) =>
 		  [
 		  ...currentTaskList,
-                  task
+			  { text: task, id: Math.random().toString()}
 		  ]
 	  );
   }
@@ -32,14 +32,17 @@ export default function App() {
 	  {/*<ScrollView> use flatList for better performance, lazy load and fetch*/}
 	  <FlatList 
 	    data={taskList}
-	    renderItem={(itemData, index)=>{
+	    renderItem={({item, index})=>{
 	   	return (
                    
 		      <View style={styles.tastItemStyle} >
-			<Text style={styles.taskItemTextStyle}>{itemData.item}</Text>
+			<Text style={styles.taskItemTextStyle}>{index+1}: {item.text}</Text>
 		      </View>
 		)
 	    }}
+	   keyExtractor={(item, index)=>{
+		   return item.id
+	   }}
 	   />
 		    {/*	    
 	  {
