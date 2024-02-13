@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import {useState} from 'react';
+import { useState } from 'react';
 import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import TaskItem from './components/TaskItem.js';
 
 export default function App() {
   const[task, setTask] = useState("");
@@ -29,33 +30,15 @@ export default function App() {
 	</View>
 	<View style={styles.taskListSection}>
 	 <Text style={styles.taskOvervewTitle}> Tasks </Text>
-	  {/*<ScrollView> use flatList for better performance, lazy load and fetch*/}
 	  <FlatList 
 	    data={taskList}
-	    renderItem={({item, index})=>{
-	   	return (
-                   
-		      <View style={styles.tastItemStyle} >
-			<Text style={styles.taskItemTextStyle}>{index+1}: {item.text}</Text>
-		      </View>
-		)
+	    renderItem={({item, index}) => {
+	   	return <TaskItem item={item} index={index} />
 	    }}
-	   keyExtractor={(item, index)=>{
+	    keyExtractor={(item, index)=>{
 		   return item.id
 	   }}
 	   />
-		    {/*	    
-	  {
-		taskList.map((taskItem, index) => {
-		  return (
-		      <View style={styles.tastItemStyle} key={index} >
-			<Text style={styles.taskItemTextStyle}>{index + 1}: {taskItem}</Text>
-		      </View>
-		  )
-	  })
-	  }
-	  </ScrollView>
-		    */}
 	</View>  
     </View>
   );
@@ -94,16 +77,6 @@ const styles = StyleSheet.create({
 	taskOvervewTitle: {
                 fontSize: 22,
 		fontWeight: 'bold' 
-	},
-	tastItemStyle : {
-		margin: 6,
-		padding: 10,
-		borderRadius: 10,
-		backgroundColor: '#5f1aca',
-		color: "#ffffff"
-	},
-	taskItemTextStyle: {
-		color: "#ffffff"
 	}
 
 });
