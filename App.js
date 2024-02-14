@@ -20,7 +20,7 @@ export default function App() {
     <View style={styles.mainContainer}>
 	  <AddTask addNewTask={addNewTask}  />
 	<View style={styles.taskListSection}>
-	 <Text style={styles.taskOvervewTitle}> Tasks </Text>
+	  { taskList.length > 0 ? <Text style={styles.taskOvervewTitle}> Tasks </Text> : <Text></Text> }
 	  <FlatList 
 	    data={taskList}
 	    renderItem={({item, index}) => {
