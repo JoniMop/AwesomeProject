@@ -16,8 +16,11 @@ export default function App() {
 	  );
   }
  
-   function deleteTask() {
+   function deleteTask(id) {
 	console.log("Delete called");
+        setTaskList((currentTaskList)=>{
+		return currentTaskList.filter((task)=> task.id !== id)
+	})
    }
 
   return (
