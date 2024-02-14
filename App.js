@@ -15,6 +15,10 @@ export default function App() {
 		  ]
 	  );
   }
+ 
+   function deleteTask() {
+	console.log("Delete called");
+   }
 
   return (
     <View style={styles.mainContainer}>
@@ -24,7 +28,7 @@ export default function App() {
 	  <FlatList 
 	    data={taskList}
 	    renderItem={({item, index}) => {
-	   	return <TaskItem item={item} index={index} />
+	   	return <TaskItem item={item} index={index} onDeleteTask={deleteTask} />
 	    }}
 	    keyExtractor={(item, index)=>{
 		   return item.id
