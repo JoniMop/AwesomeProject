@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, View, Button } from 'react-native';
+import { StyleSheet, TextInput, View, Button, Alert } from 'react-native';
 
 function AddTask(props){
 
@@ -9,8 +9,12 @@ function AddTask(props){
   }  
 
   function addTask(){
+   if(task){
      props.addNewTask(task);
      setTask('');
+   }else{
+	   Alert.alert("This field cannot be empty");
+   }
   }
     return(
 
