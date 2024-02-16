@@ -29,7 +29,7 @@ function AddTask(props){
 	  		<Button title='Add Task' onPress={addTask}/>
 	           </View>
 	           <View style={styles.buttonStyle}>
-	  		<Button title='Cancel' onPress={addTask}/>
+	  		<Button title='Cancel' onPress={props.hideModal}/>
 	           </View>
 		</View>    
 	</View>

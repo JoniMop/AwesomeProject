@@ -13,6 +13,9 @@ export default function App() {
 	  setShowModal(true);
   } 	
 
+  function hideModalHandler(){
+	  setShowModal(false);
+  } 	
   function addNewTask(newTask) {
 	  setTaskList((currentTaskList) =>
 		  [
@@ -20,6 +23,7 @@ export default function App() {
 			  { text: newTask, id: Math.random().toString()}
 		  ]
 	  );
+	  hideModalHandler();
   }
  
    function deleteTask(id) {
@@ -32,7 +36,7 @@ export default function App() {
   return (
     <View style={styles.mainContainer}>
 	  <Button title='Add New Task' color={'#f1aca'} onPress={showModalHandler}  />
-	  <AddTask addNewTask={addNewTask} visible={showModal}  />
+	  <AddTask addNewTask={addNewTask} visible={showModal} hideModal={hideModalHandler}  />
 	<View style={styles.taskListSection}>
 	  { taskList.length > 0 ? <Text style={styles.taskOvervewTitle}> Tasks </Text> : <Text></Text> }
 	  <FlatList 
