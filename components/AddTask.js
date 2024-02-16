@@ -24,7 +24,14 @@ function AddTask(props){
 	  onChangeText={taskInputHandler}
 	  style={styles.inputBox} 
 	  placeholder='Enter task details' />
-	  <Button title='Add Task' onPress={addTask}/>
+		<View style={styles.buttonGroup}>
+	           <View style={styles.buttonStyle}>
+	  		<Button title='Add Task' onPress={addTask}/>
+	           </View>
+	           <View style={styles.buttonStyle}>
+	  		<Button title='Cancel' onPress={addTask}/>
+	           </View>
+		</View>    
 	</View>
        </Modal>
 	)
@@ -35,8 +42,8 @@ const styles = StyleSheet.create({
 
 	inputContainer: {
 		flex: 1,
-		flexDirection: 'row',
-		justifyContent: 'space-between',
+		flexDirection: 'column',
+		justifyContent: 'center',
 		alignItems: 'center',
 		marginBottom: 20,
 		borderBottomColor: '#cccccc',
@@ -51,5 +58,14 @@ const styles = StyleSheet.create({
 		marginRight: 5,
 		borderRadius: 15,
 		color: '#fff'
+	},
+	buttonGroup:{
+		flexDirection: 'row',
+		marginTop: 10
+
+	},
+	buttonStyle: {
+		width: '35%',
+		marginHorizontal: 10
 	}
 })
