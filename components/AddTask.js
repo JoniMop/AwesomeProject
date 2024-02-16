@@ -48,10 +48,11 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 		borderBottomColor: '#cccccc',
 		borderBottomWidth: 1,
-		backgroundColor: "red"
+		backgroundColor: "red",
+		padding: 15
 	},
 	inputBox: {
-		width: '75%',
+		width: '100%',
 		borderWidth: 1,
 		borderColor: '#cccccc',
 		padding: 5,
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
 	},
 	buttonGroup:{
 		flexDirection: 'row',
-		marginTop: 10
+		marginTop: 15
 
 	},
 	buttonStyle: {
