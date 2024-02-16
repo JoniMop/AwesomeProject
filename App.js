@@ -1,12 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { Button, FlatList, StyleSheet, Text, View } from 'react-native';
 import TaskItem from './components/TaskItem.js';
 import AddTask from './components/AddTask.js';
 
 export default function App() {
+  const[showModal, setShowModal] = useState(false);
   const[taskList, setTaskList] = useState([]);
-  
+ 
+
+  function showModalHandler(){
+	  setShowModal(true);
+  } 	
+
   function addNewTask(newTask) {
 	  setTaskList((currentTaskList) =>
 		  [
@@ -25,7 +31,8 @@ export default function App() {
 
   return (
     <View style={styles.mainContainer}>
-	  <AddTask addNewTask={addNewTask}  />
+	  <Button title='Add New Task' color={'#f1aca'} onPress={showModalHandler}  />
+	  {showModal && <AddTask addNewTask={addNewTask} />}
 	<View style={styles.taskListSection}>
 	  { taskList.length > 0 ? <Text style={styles.taskOvervewTitle}> Tasks </Text> : <Text></Text> }
 	  <FlatList 

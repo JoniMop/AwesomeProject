@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, View, Button, Alert } from 'react-native';
+import { StyleSheet, TextInput, View, Button, Alert, Modal } from 'react-native';
 
 function AddTask(props){
 
@@ -17,7 +17,7 @@ function AddTask(props){
    }
   }
     return(
-
+      <Modal>
 	<View style={styles.inputContainer}>
 	  <TextInput
 	    value={task}
@@ -26,6 +26,7 @@ function AddTask(props){
 	  placeholder='Enter task details' />
 	  <Button title='Add Task' onPress={addTask}/>
 	</View>
+       </Modal>
 	)
 }
 export default AddTask;
