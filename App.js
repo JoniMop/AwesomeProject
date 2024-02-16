@@ -32,7 +32,7 @@ export default function App() {
   return (
     <View style={styles.mainContainer}>
 	  <Button title='Add New Task' color={'#f1aca'} onPress={showModalHandler}  />
-	  {showModal && <AddTask addNewTask={addNewTask} />}
+	  <AddTask addNewTask={addNewTask} visible={showModal}  />
 	<View style={styles.taskListSection}>
 	  { taskList.length > 0 ? <Text style={styles.taskOvervewTitle}> Tasks </Text> : <Text></Text> }
 	  <FlatList 

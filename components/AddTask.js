@@ -17,7 +17,7 @@ function AddTask(props){
    }
   }
     return(
-      <Modal>
+      <Modal visible={props.visible} animationType="slide" >
 	<View style={styles.inputContainer}>
 	  <TextInput
 	    value={task}
